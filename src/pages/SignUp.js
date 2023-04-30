@@ -71,7 +71,7 @@ export default function SignUp(props) {
                         onChange={handlePasswordChange}
                       />
                     </div>
-                    <button className="btn btn-primary btn-block" type="submit">
+                    <button className="btn btn-primary btn-block col-12" type="submit">
                       Sign Up
                     </button>
                   </form>
