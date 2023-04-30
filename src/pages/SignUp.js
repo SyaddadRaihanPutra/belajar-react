@@ -24,7 +24,7 @@ export default function SignUp(props) {
         sendEmailVerification(user)
           .then(() => {
             alert("Mohon verifikasi email anda");
-            Navigate("/login");
+            window.location.replace("/login");
           })
           .catch((error) => {
             alert(error.message);
