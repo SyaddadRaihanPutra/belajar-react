@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../config/firebase";
 import Navigation from "../components/navigation";
+import { Button } from "react-bootstrap";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -19,17 +20,12 @@ function Dashboard() {
     return unsubscribe;
   }, [navigate]);
 
-  const handleLogOut = () => {
-    auth.signOut().then(() => {
-      navigate("/login");
-    });
-  };
-
   return (
     <div>
       <Navigation />
-      <Link onClick={handleLogOut}>Logout</Link>
-      <h1>DASHBOARD</h1>
+      <div className="container">
+        <h1 className="text-center py-4">DASHBOARD PAGE</h1>
+      </div>
     </div>
   );
 }

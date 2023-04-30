@@ -2,11 +2,20 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import { auth } from "../config/firebase";
 
-function Navigation() {
+const Navigation = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    auth.signOut().then(() => {
+      navigate("/login");
+    });
+  };
+
   return (
     <Navbar
       style={{ backgroundColor: "#111827" }}
@@ -18,7 +27,7 @@ function Navigation() {
         <Navbar.Brand as={Link} to="/">
           <img
             alt=""
-            src="https://flowbite.com/docs/images/logo.svg"
+            src="/assets/img/siotics-logo.png"
             width="30"
             height="30"
             className="d-inline-block align-top"
@@ -82,6 +91,15 @@ function Navigation() {
               >
                 Sign Up
               </Button>
+            ) : location.pathname === "/dashboard" ? (
+              <Button
+                variant="primary"
+                size="sm"
+                className="rounded-3 px-3"
+                onClick={handleLogOut}
+              >
+                Logout
+              </Button>
             ) : (
               <Button
                 variant="primary"
@@ -98,6 +116,6 @@ function Navigation() {
       </Container>
     </Navbar>
   );
-}
+};
 
 export default Navigation;
