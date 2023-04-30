@@ -1,13 +1,12 @@
 import React from "react"
 import Navigation from "../components/navigation"
+import AboutSection from "../components/aboutSection"
 
 function About() {
     return (
         <div>
             <Navigation/>
-            <section>
-            <p style={{ backgroundColor: 'grey', height: '100vh' }}>INI HALAMAN ABOUT</p>
-            </section>
+            <AboutSection />
         </div>
     )
 }

@@ -55,10 +55,6 @@ function Navigation() {
             <Button variant="primary" size="sm" className="rounded-3 px-3">
               Sign In
             </Button> 
-            <span>|</span>
-            <Button variant="outline-primary" size="sm" className="rounded-3 px-3">
-              Sign Up
-            </Button>
           </Nav>
         </Navbar.Collapse>
       </Container>
