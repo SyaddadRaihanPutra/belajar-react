@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 function Navigation() {
   const location = useLocation();
   return (
-    <Navbar style={{ backgroundColor: "#111827" }} variant="dark" expand="lg">
+    <Navbar style={{ backgroundColor: "#111827" }} variant="dark" expand="lg" className="sticky-top">
       <Container>
         <Navbar.Brand as={Link} to="/">
           <img
@@ -52,8 +52,8 @@ function Navigation() {
             </NavDropdown>
           </Nav>
           <Nav className="ms-auto mb-3 mb-lg-0">
-            <Button variant="primary" size="sm" className="rounded-3 px-3">
-              Sign In
+            <Button variant="primary" size="sm" className="rounded-3 px-3" as={Link} to="/login">
+              Login
             </Button> 
           </Nav>
         </Navbar.Collapse>

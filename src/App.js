@@ -5,6 +5,7 @@ import { Routes } from "react-router-dom/dist";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Course from "./pages/Course";
+import Login from "./pages/Login";
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
               <Route path="/" exact element={<Home />}/>
               <Route path="/about" exact element={<About />} />
               <Route path="/course" exact element={<Course />} />
+              <Route path="/login" exact element={<Login />} />
             </Routes>
           </main>
         </div>
