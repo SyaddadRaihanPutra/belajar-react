@@ -19,10 +19,16 @@ function Dashboard() {
     return unsubscribe;
   }, [navigate]);
 
+  const handleLogOut = () => {
+    auth.signOut().then(() => {
+      navigate("/login");
+    });
+  };
+
   return (
     <div>
       <Navigation />
-      <Link to="/login">Logout</Link>
+      <Link onClick={handleLogOut}>Logout</Link>
       <h1>DASHBOARD</h1>
     </div>
   );
