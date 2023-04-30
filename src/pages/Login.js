@@ -56,33 +56,27 @@ export default class Login extends Component {
                       <div className="form-outline mb-4">
                         <input
                           type="email"
-                          id="typeEmailX-2"
                           className="form-control border form-control-lg"
                           required
+                          placeholder="Email"
                           value={email}
                           onChange={this.handleChangeField}
                           name="email"
                         />
-                        <label className="form-label" htmlFor="typeEmailX-2">
-                          <span className="bg-white px-2">Email</span>
-                        </label>
                       </div>
                       <div className="form-outline mb-4">
                         <input
                           type="password"
-                          id="typePasswordX-2"
                           className="form-control border form-control-lg"
                           required
+                          placeholder="Password"
                           value={password}
                           onChange={this.handleChangeField}
                           name="password"
                         />
-                        <label className="form-label" htmlFor="typePasswordX-2">
-                          <span className="bg-white px-2">Password</span>
-                        </label>
                       </div>
                       <button
-                        className="btn btn-primary btn-block"
+                        className="btn btn-primary btn-block col-12"
                         type="submit"
                       >
                         Login

@@ -8,7 +8,12 @@ import Button from "react-bootstrap/Button";
 function Navigation() {
   const location = useLocation();
   return (
-    <Navbar style={{ backgroundColor: "#111827" }} variant="dark" expand="lg" className="sticky-top">
+    <Navbar
+      style={{ backgroundColor: "#111827" }}
+      variant="dark"
+      expand="lg"
+      className="sticky-top"
+    >
       <Container>
         <Navbar.Brand as={Link} to="/">
           <img
@@ -20,19 +25,34 @@ function Navigation() {
           />{" "}
           SIOTICS
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          style={{ color: "white" }}
+        />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-md-auto gap-3 text-uppercase fw-light text-center mb-4 mb-lg-0">
             <Nav.Link as={Link} to="/" active={location.pathname === "/"}>
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/about" active={location.pathname === "/about"}>
+            <Nav.Link
+              as={Link}
+              to="/about"
+              active={location.pathname === "/about"}
+            >
               About
             </Nav.Link>
-            <Nav.Link as={Link} to="/course" active={location.pathname === "/course"}>
+            <Nav.Link
+              as={Link}
+              to="/course"
+              active={location.pathname === "/course"}
+            >
               Courses
             </Nav.Link>
-            <Nav.Link as={Link} to="/link" active={location.pathname === "/link"}>
+            <Nav.Link
+              as={Link}
+              to="/link"
+              active={location.pathname === "/link"}
+            >
               Link
             </Nav.Link>
             <NavDropdown title="Menu" id="basic-nav-dropdown">
@@ -52,9 +72,27 @@ function Navigation() {
             </NavDropdown>
           </Nav>
           <Nav className="ms-auto mb-3 mb-lg-0">
-            <Button variant="primary" size="sm" className="rounded-3 px-3" as={Link} to="/login">
-              Login
-            </Button> 
+            {location.pathname === "/login" ? (
+              <Button
+                variant="primary"
+                size="sm"
+                className="rounded-3 px-3"
+                as={Link}
+                to="/signup"
+              >
+                Sign Up
+              </Button>
+            ) : (
+              <Button
+                variant="primary"
+                size="sm"
+                className="rounded-3 px-3"
+                as={Link}
+                to="/login"
+              >
+                Login
+              </Button>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

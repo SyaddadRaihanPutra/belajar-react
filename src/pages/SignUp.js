@@ -52,39 +52,33 @@ export default function SignUp(props) {
                     <div className="form-outline mb-4">
                       <input
                         type="email"
-                        id="typeEmailX-2"
                         className="form-control border form-control-lg"
                         value={email}
                         name="email"
                         required
+                        placeholder="Email"
                         onChange={handleEmailChange}
                       />
-                      <label className="form-label" htmlFor="typeEmailX-2">
-                        <span className="bg-white px-1">Email</span>
-                      </label>
                     </div>
                     <div className="form-outline mb-4">
                       <input
                         type="password"
-                        id="typePasswordX-2"
                         className="form-control border form-control-lg"
                         value={password}
                         name="password"
                         required
+                        placeholder="Password"
                         onChange={handlePasswordChange}
                       />
-                      <label className="form-label" htmlFor="typePasswordX-2">
-                        <span className="bg-white px-1">Password</span>
-                      </label>
                     </div>
                     <button className="btn btn-primary btn-block" type="submit">
                       Sign Up
                     </button>
                   </form>
                   <p className="pt-4">
-                    Belum punya akun?{" "}
-                    <Link to="/signup" className="text-decoration-none">
-                      Sign Up
+                    Sudah punya akun?{" "}
+                    <Link to="/login" className="text-decoration-none">
+                      Login
                     </Link>
                   </p>
                 </div>
