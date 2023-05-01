@@ -1,17 +1,16 @@
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { sendEmailVerification } from "firebase/auth";
+import { updateProfile } from "firebase/auth";
 import Navigation from "../components/navigation";
-import { auth } from "../config/firebase";
+import { Link, Navigate } from "react-router-dom";
 
 export default function SignUp(props) {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleNameChange = (e) => setName(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
@@ -21,10 +20,18 @@ export default function SignUp(props) {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        sendEmailVerification(user)
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
           .then(() => {
-            alert("Mohon verifikasi email anda");
-            window.location.replace("/login");
+            sendEmailVerification(auth.currentUser)
+              .then(() => {
+                alert("Mohon verifikasi email anda");
+                window.location.replace("/login");
+              })
+              .catch((error) => {
+                alert(error.message);
+              });
           })
           .catch((error) => {
             alert(error.message);
@@ -51,6 +58,17 @@ export default function SignUp(props) {
                   <form onSubmit={handleSubmit}>
                     <div className="form-outline mb-4">
                       <input
+                        type="text"
+                        className="form-control border form-control-lg"
+                        value={name}
+                        name="name"
+                        required
+                        placeholder="Name"
+                        onChange={handleNameChange}
+                      />
+                    </div>
+                    <div className="form-outline mb-4">
+                      <input
                         type="email"
                         className="form-control border form-control-lg"
                         value={email}
@@ -71,7 +89,10 @@ export default function SignUp(props) {
                         onChange={handlePasswordChange}
                       />
                     </div>
-                    <button className="btn btn-primary btn-block col-12" type="submit">
+                    <button
+                      className="btn btn-primary btn-block col-12"
+                      type="submit"
+                    >
                       Sign Up
                     </button>
                   </form>

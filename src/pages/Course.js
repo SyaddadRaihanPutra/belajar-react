@@ -1,11 +1,12 @@
 import React from 'react';
 import Navigation from '../components/navigation';
+import CardSection from '../components/courseSection';
 
 function Course() {
     return (
         <div>
             <Navigation />
-            <h1>Course</h1>
+            <CardSection />
         </div>
     )
 }

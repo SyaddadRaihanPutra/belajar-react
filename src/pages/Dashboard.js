@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../config/firebase";
 import Navigation from "../components/navigation";
-import { Button } from "react-bootstrap";
+import DashboardComponent from "../components/dashboardComponent";
 
 function Dashboard(props) {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ function Dashboard(props) {
     greeting = "Selamat pagi";
   } else if (hour < 18) {
     greeting = "Selamat siang";
-  } else if (hour < 21) {
+  } else if (hour < 19) {
     greeting = "Selamat sore";
   } else {
     greeting = "Selamat malam";
@@ -29,8 +29,6 @@ function Dashboard(props) {
       if (!user) {
         navigate("/login");
       }
-      const emailSplit = user.email.split("@");
-      setName(emailSplit[0]);
     });
 
     return unsubscribe;
@@ -57,8 +55,14 @@ function Dashboard(props) {
       <div className="container">
         <h1 className="text-center py-4">DASHBOARD PAGE</h1>
         <h1 className="py-4">Hi, {greeting}!</h1>
-        {user && <p>Anda Login dengan email: {user.email}</p>}
-        {name && <p>User name: {name}</p>}
+        <div className="card border-warning mb-3" style={{ maxWidth: "18rem" }}>
+          <div className="card-header">Account Information</div>
+          <div className="card-body">
+            <p className="card-text">Username: {user.displayName}</p>
+            <p className="card-text">Email: {user.email}</p>
+          </div>
+        </div>
+        <DashboardComponent />
       </div>
     </div>
   );

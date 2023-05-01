@@ -2,7 +2,7 @@ import { Container, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
 
-function GroupExample() {
+function courseSection() {
   return (
     <Container>
         <h1 className="text-center py-5">Our Courses</h1>
@@ -67,4 +67,4 @@ function GroupExample() {
   );
 }
 
-export default GroupExample;
+export default courseSection;
