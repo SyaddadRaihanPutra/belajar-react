@@ -36,14 +36,29 @@ function Dashboard(props) {
     return unsubscribe;
   }, [navigate]);
 
+  if (!user) {
+    return (
+      <div
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        <img src="https://art.pixilart.com/7badccc6206bf0f.gif" width={300} />
+      </div>
+    );
+  }
+
   return (
     <div>
       <Navigation />
       <div className="container">
+        <h1 className="text-center py-4">DASHBOARD PAGE</h1>
         <h1 className="py-4">Hi, {greeting}!</h1>
         {user && <p>Anda Login dengan email: {user.email}</p>}
         {name && <p>User name: {name}</p>}
-        <h1 className="text-center py-4">DASHBOARD PAGE</h1>
       </div>
     </div>
   );

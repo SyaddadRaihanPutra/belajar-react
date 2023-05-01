@@ -24,7 +24,9 @@ export default class Login extends Component {
     const { email, password } = this.state;
     const auth = getAuth();
     try {
-      const res = await signInWithEmailAndPassword(auth, email, password, { remember: 'local' });
+      const res = await signInWithEmailAndPassword(auth, email, password, {
+        remember: "local",
+      });
       console.log(res);
       if (res.user.emailVerified) {
         window.location.href = "/dashboard";
@@ -36,7 +38,6 @@ export default class Login extends Component {
       alert(error.message);
     }
   }
-  
 
   render() {
     const { email, password } = this.state;
