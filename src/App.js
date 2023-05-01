@@ -22,6 +22,7 @@ class App extends Component {
               <Route path="/login" exact element={<Login />} />
               <Route path="/signup" exact element={<SignUp />} />
               <Route path="/dashboard" exact element={<Dashboard />} />
+              <Route path="*" element={<h1 className="d-flex justify-content-center align-items-center bg-dark text-light" style={{ height: '100vh' }}>404 | Not Found</h1>} />
             </Routes>
           </main>
         </div>
