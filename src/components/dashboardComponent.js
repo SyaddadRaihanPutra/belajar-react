@@ -1,9 +1,14 @@
 import React from "react";
 
 const DashboardComponent = () => {
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    console.log("berhasil di klik");
+  }
+
   return (
     <div>
-      <form>
+      <form onSubmit={handleFormSubmit}>
         <div className="mb-3">
           <label htmlFor="exampleFormControlInput1" className="form-label">
             Email address
@@ -32,7 +37,9 @@ const DashboardComponent = () => {
           </label>
           <input className="form-control" type="file" id="formFile" />
         </div>
-        <button className="btn btn-primary btn-block col-12">Add Course</button>
+        <button className="btn btn-primary btn-block col-12" type="submit">
+          Add Course
+        </button>
       </form>
     </div>
   );
