@@ -8,6 +8,7 @@ import Course from "./pages/Course";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard";
+import NewBlog from "./pages/NewBlog";
 
 class App extends Component {
   render() {
@@ -15,14 +16,26 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <main>
-          <Routes>
+            <Routes>
               <Route path="/" exact element={<Home />} />
               <Route path="/about" exact element={<About />} />
               <Route path="/course" exact element={<Course />} />
               <Route path="/login" exact element={<Login />} />
               <Route path="/signup" exact element={<SignUp />} />
               <Route path="/dashboard" exact element={<Dashboard />} />
-              <Route path="*" element={<h1 className="d-flex justify-content-center align-items-center bg-dark text-light" style={{ height: '100vh' }}>404 | Not Found</h1>} />
+              <Route
+                path="*"
+                element={
+                  <h1
+                    className="d-flex justify-content-center align-items-center bg-dark text-light"
+                    style={{ height: "100vh" }}
+                  >
+                    404 | Not Found
+                  </h1>
+                }
+              />
+
+              <Route path="/newblog" exact element={<NewBlog />} />
             </Routes>
           </main>
         </div>

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../config/firebase";
 import Navigation from "../components/navigation";
+import NavigationAdmin from "../components/navigationAdmin";
 import DashboardComponent from "../components/dashboardComponent";
 
 function Dashboard(props) {
@@ -51,11 +52,11 @@ function Dashboard(props) {
 
   return (
     <div>
-      <Navigation />
+      <NavigationAdmin />
       <div className="container">
         <h1 className="text-center py-4">DASHBOARD PAGE</h1>
         <h1 className="py-4">Hi, {greeting}!</h1>
-        <div className="card border-warning mb-3" style={{ maxWidth: "18rem" }}>
+        <div className="card border-warning mb-3" style={{ Width: "18rem" }}>
           <div className="card-header">Account Information</div>
           <div className="card-body">
             <p className="card-text">Username: {user.displayName}</p>
